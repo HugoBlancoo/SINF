@@ -1,0 +1,50 @@
+entrar en mysql:
+> mysql -u root -p
+
+entrar al cliente:
+> mysql [–h maquina] –u usuario –p [bd]
+
+si el servidor está en la misma máquina, el parámetro maquina no es necesario.
+Si no vamos a modificar ninguna base de datos, bd no es necesario.
+
+Usuarios:
+Root	misma contraseña que en moovit	
+Hugo	Hugo.23022020
+
+ver usuarios:
+> Select user, host FROM mysql.user;
+
+Asignar permisos a un usuario sobre una base de datos:
+> GRANT ALL PRIVILEGES ON nombre_de_la_basede_datos.* TO 'nombre_de_usuario'@'localhost';
+
+Crear tablas:
+> CREATE TABLE nombre_de_la_tabla (
+    columna1 tipo_de_dato,		//Cadena-> VARCHAR(Long_max)
+    columna2 tipo_de_dato,
+    columna3 tipo_de_dato,
+    ...
+);
+
+Insertar datos en la tabla:
+>INSERT INTO nombre_de_la_tabla (columna1, columna2, columna3, ...)
+VALUES (valor_columna1, valor_columna2, valor_columna3, ...);
+
+Consultar datos de las tablas:
+> SELECT * FROM nombre_de_la_tabla;
+
+Eliminar una tabla:
+> 	DROP TABLE nombre_de_la_tabla;
+
+Crear Relaciones:
+> CREATE TABLE Profesores ( 
+   Nombre VARCHAR(20), 
+   Apellido VARCHAR(50),
+   Asignatura VARCHAR(10),
+   Código INT PRIMARY KEY );
+ 
+ > CREATE TABLE Alumnos ( 
+    Nombre VARCHAR(20), 
+    Apellido VARCHAR(50), 
+    Correo VARCHAR(50), 
+    Código INT, 
+    FOREIGN KEY (Código) REFERENCES Profesores(Código) );
