@@ -5,11 +5,7 @@ entrar al cliente:
 > mysql [–h maquina] –u usuario –p [bd]
 
 si el servidor está en la misma máquina, el parámetro maquina no es necesario.
-Si no vamos a modificar ninguna base de datos, bd no es necesario.
-
-Usuarios:
-Root	misma contraseña que en moovit	
-Hugo	Hugo.23022020
+Si no vamos a modificar ninguna base de datos, bd no es necesario
 
 ver usuarios:
 > Select user, host FROM mysql.user;
